@@ -50,3 +50,8 @@ else:
     print("Количество мужчин и женщин с доходом больше 50K одинаково.")
 
 #6 Заполните пропущенные данные в отдельных столбцах наиболее встречаемыми значениями.
+for column in X.columns:
+    most_frequent_value = X[column].mode()[0]
+    X.loc[X[column] == '?', column] = most_frequent_value
+print("После замены:")
+print(X.isin(['?']).sum())
